@@ -39,8 +39,8 @@ jobs:
       - uses: actions/download-artifact@v3
       - run: ls -la
       - run: |
-          sudo apt update && apt install -y make
-          sudo apt install -y ruby build-essential rpm
+          sudo apt-get update
+          sudo apt-get install -y make ruby build-essential rpm
           gem install fpm
           make all
           ls -la ./output/
