@@ -1,0 +1,11 @@
+#!/bin/sh
+
+set -e
+
+[ -f /etc/default/hello ] && . /etc/default/hello
+
+if [ "$1" = "remove" ]; then
+    if command -v systemctl 2>/dev/null; then
+        systemctl stop hello.service > /dev/null 2>&1 || :
+    fi
+fi

@@ -1,0 +1,20 @@
+[Unit]
+Description=Hello server
+Documentation=https://github.com/t-katsumura/golang-packaging
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=always
+User=hello
+Environment=HOSTNAME=%H
+Environment=DEPLOY_MODE=deb
+EnvironmentFile=/etc/default/hello
+WorkingDirectory=/var/lib/hello
+ExecStart=/usr/bin/hello $EXTRA_ARGS
+ExecReload=/usr/bin/env kill -HUP $MAINPID
+TimeoutStopSec=30s
+SendSIGKILL=no
+
+[Install]
+WantedBy=multi-user.target
