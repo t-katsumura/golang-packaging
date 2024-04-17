@@ -37,3 +37,8 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
       - run: ls -la
+      - run: |
+          apt update && apt install -y make
+          apt install -y ruby build-essential rpm
+          gem install fpm
+          make all
