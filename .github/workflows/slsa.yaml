@@ -42,3 +42,4 @@ jobs:
           apt install -y ruby build-essential rpm
           gem install fpm
           make all
+          ls -la ./output/
