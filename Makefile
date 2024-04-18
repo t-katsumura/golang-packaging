@@ -51,6 +51,8 @@ build:
 		$(ASSET_DIR)hello.env=$(ENV_FILE) \
 		$(ASSET_DIR)hello.service=/usr/lib/systemd/system/hello.service
 
+	sha256sum ./output/hello-$(PKG_VERSION)-$(PKG_ITERATION).$(PKG_ARCH).$(PKG_TYPE) >> ./output/SHA256SUMS.txt
+
 ENV_RPM := PKG_TYPE=rpm ASSET_DIR=./rpm/ ENV_FILE=/etc/sysconfig/hello
 ENV_DEB := PKG_TYPE=deb ASSET_DIR=./deb/ ENV_FILE=/etc/default/hello
 
@@ -61,7 +63,7 @@ all: rpm deb
 rpm:
 	$(ENV_RPM) PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         $(MAKE) build
 	$(ENV_RPM) PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=arm     BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
 	$(ENV_RPM) PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     $(MAKE) build
 	$(ENV_RPM) PKG_ARCH=ppc64le BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le $(MAKE) build
 	$(ENV_RPM) PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 $(MAKE) build
@@ -71,7 +73,7 @@ rpm:
 deb:
 	$(ENV_DEB) PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=arm     BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=ppc64el BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 $(MAKE) build

@@ -44,6 +44,9 @@ jobs:
           sudo gem install fpm
           make all
           ls -la ./output/
+      - run: |
+          sha256sum ./hello-* >> ./output/SHA256SUMS
+          sha256sum ./output/hello-* >> ./output/SHA256SUMS
       - uses: actions/upload-artifact@v4
         with:
           name: packages

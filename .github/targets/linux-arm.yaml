@@ -9,6 +9,7 @@ binary: hello-{{ .Os }}-{{ .Arch }}
 env:
   - GO111MODULE=on
   - CGO_ENABLED=0
+  - GOARM=7
 
 flags:
   - -trimpath
@@ -17,5 +18,5 @@ flags:
 ldflags:
   - "-w"
   - "-s"
-  - "-extldflags \"-static\""
+  - '-extldflags "-static"'
   - "-X main.version={{ .Env.VERSION }}"
