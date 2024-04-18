@@ -71,7 +71,7 @@ rpm:
 deb:
 	$(ENV_DEB) PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=armhf   BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=ppc64el BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le $(MAKE) build
 	$(ENV_DEB) PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 $(MAKE) build
