@@ -28,7 +28,7 @@ jobs:
       config-file: .github/targets/${{matrix.os}}-${{matrix.arch}}.yaml
       evaluated-envs: "VERSION:v0.0.0"
       draft-release: true
-      upload-assets: false
+      upload-assets: true
       upload-tag-name: v0.0.0
 
   list:
@@ -44,8 +44,13 @@ jobs:
           sudo gem install fpm
           make all
           ls -la ./output/
-      - run: cd ./output/ && sha256sum hello-* >> ./output/SHA256SUMS
+      - run: cd ./output/ && sha256sum ./hello-* >> ./SHA256SUMS
       - uses: actions/upload-artifact@v4
         with:
           name: packages
           path: ./output/
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: ./output/*
+          draft: true
+          tag_name: v0.0.0
