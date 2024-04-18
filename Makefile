@@ -10,10 +10,6 @@
 # apt install -y ruby build-essential
 # gem install fpm
 
-# OS:
-# ARCH: i386,amd64,arm,arm64,ppc64le(rhel),ppc64el(debian),riscv64,s390x
-# ITERATION: a1,a2,... b1,b2,... r1,r2,...
-
 PKG_TYPE ?= rpm
 PKG_VERSION ?= 1.0.0
 PKG_ITERATION ?= 1
@@ -50,7 +46,7 @@ build:
 	--after-remove $(ASSET_DIR)postrm \
 	--config-files /etc/hello/hello.conf \
 	--config-files $(ENV_FILE) \
-		$(BIN_FILE)/$(BIN_FILE)=/usr/bin/hello \
+		$(BIN_FILE)=/usr/bin/hello \
 		$(ASSET_DIR)hello.conf=/etc/hello/hello.conf \
 		$(ASSET_DIR)hello.env=$(ENV_FILE) \
 		$(ASSET_DIR)hello.service=/usr/lib/systemd/system/hello.service
@@ -63,20 +59,20 @@ all: rpm deb
 
 .PHONY: rpm
 rpm:
-	$(ENV_RPM) PKG_ARCH=i386 BIN_FILE=hello-linux-386 $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=amd64 BIN_FILE=hello-linux-amd64 $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=arm BIN_FILE=hello-linux-arm $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=arm64 BIN_FILE=hello-linux-arm64 $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=ppc64le BIN_FILE=hello-linux-ppc64le $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=riscv64 BIN_FILE=hello-linux-riscv64 $(MAKE) build
-	$(ENV_RPM) PKG_ARCH=s390x BIN_FILE=hello-linux-s390x $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=arm     BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=ppc64le BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 $(MAKE) build
+	$(ENV_RPM) PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     $(MAKE) build
 
 .PHONY: deb
 deb:
-	$(ENV_DEB) PKG_ARCH=i386 BIN_FILE=hello-linux-386 $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=amd64 BIN_FILE=hello-linux-amd64 $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=arm BIN_FILE=hello-linux-arm $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=arm64 BIN_FILE=hello-linux-arm64 $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=ppc64el BIN_FILE=hello-linux-ppc64le $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=riscv64 BIN_FILE=hello-linux-riscv64 $(MAKE) build
-	$(ENV_DEB) PKG_ARCH=s390x BIN_FILE=hello-linux-s390x $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=arm     BIN_FILE=./hello-linux-arm/hello-linux-arm         $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=ppc64el BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 $(MAKE) build
+	$(ENV_DEB) PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     $(MAKE) build
