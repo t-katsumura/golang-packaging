@@ -17,7 +17,6 @@
 PKG_TYPE ?= rpm
 PKG_VERSION ?= 1.0.0
 PKG_ITERATION ?= 1
-PKG_OS ?= linux
 PKG_ARCH ?= x86_64
 ENV_FILE ?= /etc/sysconfig/hello
 
@@ -36,12 +35,12 @@ build:
 	--version $(PKG_VERSION) \
 	--iteration $(PKG_ITERATION) \
 	--license "Apache 2.0" \
-	--vendor "AILERON Gateway" \
-	--url "https://github.com/aileron-gateway/" \
-	--maintainer "AILERON Gateway Community" \
-	--rpm-summary "AILERON Gateway. Enterprise-grade API  gateway." \
-	--description "This package contains the intdash Auth Service." \
-	--rpm-os $(PKG_OS) \
+	--vendor "HELLO WORLD" \
+	--url "https://github.com/" \
+	--maintainer "HELLO WORLD Community" \
+	--rpm-summary "HELLO WORLD Server." \
+	--description "This is the hello world package." \
+	--rpm-os linux \
 	--architecture $(PKG_ARCH) \
 	--rpm-rpmbuild-define "_build_id_links none" \
 	--rpm-digest sha256 \
@@ -51,7 +50,7 @@ build:
 	--after-remove $(ASSET_DIR)postrm \
 	--config-files /etc/hello/hello.conf \
 	--config-files $(ENV_FILE) \
-		$(BIN_FILE)=/usr/bin/hello \
+		$(BIN_FILE)/$(BIN_FILE)=/usr/bin/hello \
 		$(ASSET_DIR)hello.conf=/etc/hello/hello.conf \
 		$(ASSET_DIR)hello.env=$(ENV_FILE) \
 		$(ASSET_DIR)hello.service=/usr/lib/systemd/system/hello.service
