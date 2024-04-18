@@ -14,7 +14,7 @@ PKG_TYPE ?= rpm
 PKG_VERSION ?= 1.0.0
 PKG_ITERATION ?= 1
 PKG_ARCH ?= x86_64
-ENV_FILE ?= /etc/sysconfig/hello
+ENV_FILE ?= /etc/sysconfig/hello.env
 
 ASSET_DIR ?= ./$(PKG_TYPE)/
 BIN_FILE ?= hello
@@ -51,8 +51,8 @@ build:
 		$(ASSET_DIR)hello.env=$(ENV_FILE) \
 		$(ASSET_DIR)hello.service=/usr/lib/systemd/system/hello.service
 
-ENV_RPM := PKG_TYPE=rpm ASSET_DIR=./rpm/ ENV_FILE=/etc/sysconfig/hello
-ENV_DEB := PKG_TYPE=deb ASSET_DIR=./deb/ ENV_FILE=/etc/default/hello
+ENV_RPM := PKG_TYPE=rpm ASSET_DIR=./rpm/ ENV_FILE=/etc/sysconfig/hello.env
+ENV_DEB := PKG_TYPE=deb ASSET_DIR=./deb/ ENV_FILE=/etc/default/hello.env
 
 .PHONY: all
 all: rpm deb

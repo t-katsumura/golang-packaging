@@ -9,3 +9,24 @@ To know the details about `.dep` packages, check the following references.
 - [6. Package maintainer scripts and installation procedure](https://www.debian.org/doc/debian-policy/ch-maintainerscripts.html)
 - [9. Maintainer script flowcharts](https://www.debian.org/doc/debian-policy/ap-flowcharts.html)
 - [Manpages of dpkg-dev in Debian testing](https://manpages.debian.org/testing/dpkg-dev/)
+
+## Installed files
+
+```txt
+/
+├── etc/
+│   ├── default/
+│   │   └── hello.env
+│   └── hello/
+│       └── hello.conf
+├── usr/
+│   ├── bin/
+│   │   └── hello
+│   └── lib/
+│       └── systemd/
+│           └── system/
+│               └── hello.service
+└── var/
+    └── lib/
+        └── hello/
+```

@@ -11,7 +11,7 @@ EnvironmentFile=/etc/sysconfig/hello
 WorkingDirectory=/var/lib/hello
 PIDFile=/run/hello.pid
 ExecStartPre=/usr/bin/rm -f /run/hello.pid
-ExecStart=/usr/bin/hello $EXTRA_ARGS
+ExecStart=/usr/bin/hello -f /etc/hello/hello.conf $EXTRA_ARGS
 ExecReload=/usr/bin/env kill -HUP $MAINPID
 TimeoutStopSec=60s
 
