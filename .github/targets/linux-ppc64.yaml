@@ -4,7 +4,7 @@ goos: linux
 goarch: ppc64
 
 main: ./
-binary: hello
+binary: hello-{{ .Os }}-{{ .Arch }}
 
 env:
   - GO111MODULE=on
