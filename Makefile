@@ -51,8 +51,6 @@ build:
 		$(ASSET_DIR)hello.env=$(ENV_FILE) \
 		$(ASSET_DIR)hello.service=/usr/lib/systemd/system/hello.service
 
-	sha256sum ./output/hello-$(PKG_VERSION)-$(PKG_ITERATION).$(PKG_ARCH).$(PKG_TYPE) >> ./output/SHA256SUMS.txt
-
 ENV_RPM := PKG_TYPE=rpm ASSET_DIR=./rpm/ ENV_FILE=/etc/sysconfig/hello
 ENV_DEB := PKG_TYPE=deb ASSET_DIR=./deb/ ENV_FILE=/etc/default/hello
 
