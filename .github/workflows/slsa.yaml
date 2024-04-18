@@ -42,7 +42,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y make ruby build-essential rpm
           sudo gem install fpm
-          make fpm
+          make all
           ls -la ./output/
       - run: |
           cd ./output/
