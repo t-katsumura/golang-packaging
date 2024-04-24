@@ -7,15 +7,20 @@ import (
 )
 
 func main() {
+
+	wd, _ := os.Getwd()
+	log.Println("Args:", os.Args)
+	log.Println("UID:", os.Getuid(), "GID:", os.Getgid())
+	log.Println("Working directly:", wd)
+	log.Println("Listening on:", "0.0.0.0:8080")
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		log.Println(r.Method, r.URL.Path)
 		w.Write([]byte("hello !!"))
 	})
 
-	log.Println("args", os.Args)
-	log.Println(os.Getwd())
-	log.Println("listen", ":8080")
-	if err := http.ListenAndServe(":8080", nil); err != http.ErrServerClosed {
+	if err := http.ListenAndServe("0.0.0.0:8080", nil); err != http.ErrServerClosed {
 		panic(err)
 	}
+
 }

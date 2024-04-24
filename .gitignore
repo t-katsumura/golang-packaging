@@ -24,3 +24,4 @@ go.work
 hello
 *.rpm
 *.deb
+*.apk
