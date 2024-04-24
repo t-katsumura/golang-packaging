@@ -113,30 +113,30 @@ nfpm-all: nfpm-rpm nfpm-deb nfpm-apk
 
 .PHONY: nfpm-rpm
 nfpm-rpm: outdir
-	NFPM_PASSPHRASE=hello PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p rpm -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=x86_64  BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p rpm -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p rpm -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=aarch64 BIN_FILE=./hello-linux-arm64/hello-linux-arm64     nfpm package -p rpm -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=ppc64le BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le nfpm package -p rpm -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 nfpm package -p rpm -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=x86_64  BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=aarch64 BIN_FILE=./hello-linux-arm64/hello-linux-arm64     nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=ppc64le BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 nfpm package -p rpm -t $(OUT_DIR)
+	PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     nfpm package -p rpm -t $(OUT_DIR)
 
 .PHONY: nfpm-deb
 nfpm-deb: outdir
-	NFPM_PASSPHRASE=hello PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p deb -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p deb -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=armhf   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p deb -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     nfpm package -p deb -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=ppc64el BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le nfpm package -p deb -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 nfpm package -p deb -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=armhf   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=arm64   BIN_FILE=./hello-linux-arm64/hello-linux-arm64     nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=ppc64el BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 nfpm package -p deb -t $(OUT_DIR)
+	PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     nfpm package -p deb -t $(OUT_DIR)
 
 .PHONY: nfpm-apk
 nfpm-apk: outdir
-	NFPM_PASSPHRASE=hello PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p apk -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=x86_64  BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p apk -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p apk -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=aarch64 BIN_FILE=./hello-linux-arm64/hello-linux-arm64     nfpm package -p apk -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=ppc6le  BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le nfpm package -p apk -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 nfpm package -p apk -t $(OUT_DIR)
-	NFPM_PASSPHRASE=hello PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=x86_64  BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=aarch64 BIN_FILE=./hello-linux-arm64/hello-linux-arm64     nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=ppc6le  BIN_FILE=./hello-linux-ppc64le/hello-linux-ppc64le nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 nfpm package -p apk -t $(OUT_DIR)
+	PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     nfpm package -p apk -t $(OUT_DIR)

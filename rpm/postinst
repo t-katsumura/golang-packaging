@@ -16,7 +16,7 @@ case "$1" in
 
         if [ ! -d /var/lib/hello/ ]; then
             mkdir /var/lib/hello/
-            chmod 770 /var/lib/hello/
+            chmod 644 /var/lib/hello/
         fi
 
 esac

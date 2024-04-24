@@ -6,10 +6,8 @@ set -e
 
 echo "RUN postrm:" $@
 
-if [ "$1" = "del" ]; then
-    if [ -z "$(ls -A /var/lib/hello/)" ]; then
-        rm -rf /var/lib/hello/
-    fi
+if [ -z "$(ls -A /var/lib/hello/)" ]; then
+    rm -rf /var/lib/hello/
 fi
 
 #----------------------------------------------------

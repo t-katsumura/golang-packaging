@@ -14,8 +14,7 @@ vendor: "Hello World Community"
 homepage: "http://github.com"
 license: "Apache 2.0"
 
-provides:
-  - hello
+provides: []
 depends: []
 recommends: []
 suggests: []
@@ -28,7 +27,7 @@ contents:
     dst: /usr/bin/hello
     expand: true
     file_info:
-      mode: 0770
+      mode: 0755
 
   - src: ./rpm/hello.conf
     dst: /etc/hello/hello.conf
