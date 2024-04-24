@@ -108,13 +108,14 @@ apk:
 #########################################################################################################
 # Another example with https://nfpm.goreleaser.com/
 
-NFPM_PASSPHRASE:=hello
+NFPM_PASSPHRASE=hello
 
 .PHONY: nfpm-all
 nfpm-all: nfpm-rpm nfpm-deb nfpm-apk
 
 .PHONY: nfpm-rpm
 nfpm-rpm: outdir
+	export NFPM_PASSPHRASE=hello
 	PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p rpm -t $(OUT_DIR)
 	PKG_ARCH=x86_64  BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p rpm -t $(OUT_DIR)
 	PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p rpm -t $(OUT_DIR)
@@ -125,6 +126,7 @@ nfpm-rpm: outdir
 
 .PHONY: nfpm-deb
 nfpm-deb: outdir
+	export NFPM_PASSPHRASE=hello
 	PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p deb -t $(OUT_DIR)
 	PKG_ARCH=amd64   BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p deb -t $(OUT_DIR)
 	PKG_ARCH=armhf   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p deb -t $(OUT_DIR)
@@ -135,6 +137,7 @@ nfpm-deb: outdir
 
 .PHONY: nfpm-apk
 nfpm-apk: outdir
+	export NFPM_PASSPHRASE=hello
 	PKG_ARCH=i386    BIN_FILE=./hello-linux-386/hello-linux-386         nfpm package -p apk -t $(OUT_DIR)
 	PKG_ARCH=x86_64  BIN_FILE=./hello-linux-amd64/hello-linux-amd64     nfpm package -p apk -t $(OUT_DIR)
 	PKG_ARCH=armv7   BIN_FILE=./hello-linux-arm/hello-linux-arm         nfpm package -p apk -t $(OUT_DIR)
