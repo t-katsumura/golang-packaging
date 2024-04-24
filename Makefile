@@ -104,6 +104,12 @@ apk:
 	PKG_TYPE=apk PKG_ARCH=riscv64 BIN_FILE=./hello-linux-riscv64/hello-linux-riscv64 $(MAKE) fpm-apk
 	PKG_TYPE=apk PKG_ARCH=s390x   BIN_FILE=./hello-linux-s390x/hello-linux-s390x     $(MAKE) fpm-apk
 
+#########################################################################################################
+#########################################################################################################
+# Another example with https://nfpm.goreleaser.com/
+
+NFPM_RPM_PASSPHRASE=hello
+
 .PHONY: nfpm-all
 nfpm-all: nfpm-rpm nfpm-deb nfpm-apk
 
