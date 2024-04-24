@@ -7,6 +7,8 @@ set -e
 
 #----------------------------------------------------
 
+echo "RUN prerm:" $@
+
 if [ "$1" -eq 0 ] ; then
     if [ -x /bin/systemctl ] ; then
         /bin/systemctl stop hello.service > /dev/null 2>&1 || :

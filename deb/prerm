@@ -7,6 +7,8 @@ set -e
 
 #----------------------------------------------------
 
+echo "RUN prerm:" $@
+
 if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
     if command -v systemctl 2>/dev/null; then
         systemctl stop hello.service > /dev/null 2>&1 || :

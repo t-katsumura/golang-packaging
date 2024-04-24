@@ -4,7 +4,9 @@ set -e
 
 #----------------------------------------------------
 
-if [ "$1" = "remove" ] || [ "$1" = "purge" ]; then
+echo "RUN postrm:" $@
+
+if [ "$1" = "del" ]; then
     if [ -z "$(ls -A /var/lib/hello/)" ]; then
         rm -rf /var/lib/hello/
     fi

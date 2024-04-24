@@ -4,6 +4,8 @@ set -e
 
 #----------------------------------------------------
 
+echo "RUN postrm:" $@
+
 if [ "$1" -eq 0 ] ; then
     if [ -z "$(ls -A /var/lib/hello/)" ]; then
         rm -rf /var/lib/hello/

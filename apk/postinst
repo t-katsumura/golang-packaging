@@ -7,6 +7,8 @@ set -e
 
 #----------------------------------------------------
 
+echo "RUN postinst:" $@
+
 case "$1" in
     configure)
 
