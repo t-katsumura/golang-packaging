@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+# Load environmental variables if exists.
+[ -f /etc/default/hello ] && . /etc/default/hello
+
+#----------------------------------------------------
+
+case "$1" in
+    configure)
+
+        chmod 755 /usr/bin/hello
+
+        if [ ! -d /var/lib/hello/ ]; then
+            mkdir /var/lib/hello/
+            chmod 770 /var/lib/hello/
+        fi
+
+esac
+
+#----------------------------------------------------
+exit 0
