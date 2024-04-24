@@ -46,9 +46,9 @@ jobs:
           ls -la ./packages/
       - run: |
           cd ./packages/
-          sha256sum hello-* >> ./SHA256SUMS
-          sha1sum hello-* >> ./SHA1SUMS
-          md5sum hello-* >> ./MD5SUMS
+          sha256sum hello* >> ./SHA256SUMS
+          sha1sum hello* >> ./SHA1SUMS
+          md5sum hello* >> ./MD5SUMS
       - uses: softprops/action-gh-release@v2
         with:
           files: ./packages/*
@@ -72,9 +72,9 @@ jobs:
           ls -la ./packages/
       - run: |
           cd ./packages/
-          sha256sum hello-* >> ./SHA256SUMS
-          sha1sum hello-* >> ./SHA1SUMS
-          md5sum hello-* >> ./MD5SUMS
+          sha256sum hello* >> ./SHA256SUMS
+          sha1sum hello* >> ./SHA1SUMS
+          md5sum hello* >> ./MD5SUMS
       - uses: softprops/action-gh-release@v2
         with:
           files: ./packages/*
