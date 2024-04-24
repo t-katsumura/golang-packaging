@@ -1,6 +1,6 @@
 # golang-packaging
 
-This repository is an example of creating `.rpm`, `.deb` and `apk` packages for Golang applications.
+This repository is an example of creating `.rpm`, `.deb` and `.apk` packages for Golang applications.
 
 ## How to use
 
