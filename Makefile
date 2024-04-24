@@ -108,7 +108,7 @@ apk:
 #########################################################################################################
 # Another example with https://nfpm.goreleaser.com/
 
-NFPM_RPM_PASSPHRASE=hello
+NFPM_PASSPHRASE:=hello
 
 .PHONY: nfpm-all
 nfpm-all: nfpm-rpm nfpm-deb nfpm-apk
