@@ -21,7 +21,7 @@
 go.work
 
 .vscode/**
-output/**
+packages/**
 hello
 *.rpm
 *.deb

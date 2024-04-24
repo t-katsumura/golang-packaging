@@ -42,7 +42,7 @@ CGO_ENABLED=0 go build -ldflags="-w -s" ./hello.go
 Default version and arch are defined in [./Makefile](./Makefile).
 Overwrite them if necessary.
 
-Packages are output in `./output/` directory by default.
+Packages are output in `./packages/` directory by default.
 
 **.rpm using fpm**
 

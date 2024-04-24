@@ -1,0 +1,104 @@
+name: "hello"
+arch: "${PKG_ARCH}"
+platform: "linux"
+version: "0.0.0"
+version_schema: semver
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "HELLO WORLD Community"
+description: |
+  This is the hello world package.
+vendor: "Hello World Community"
+homepage: "http://github.com"
+license: "Apache 2.0"
+
+provides:
+  - hello
+depends: []
+recommends: []
+suggests: []
+conflicts: []
+
+umask: 0o770
+
+contents:
+  - src: ${BIN_FILE}
+    dst: /usr/bin/hello
+    expand: true
+    file_info:
+      mode: 0770
+
+  - src: ./rpm/hello.conf
+    dst: /etc/hello/hello.conf
+    type: config
+    packager: rpm
+  - src: ./rpm/hello.env
+    dst: /etc/sysconfig/hello.env
+    type: config
+    packager: rpm
+  - src: ./rpm/hello.service
+    dst: /usr/lib/systemd/system/hello.service
+    type: config
+    packager: rpm
+
+  - src: ./deb/hello.conf
+    dst: /etc/hello/hello.conf
+    type: config
+    packager: deb
+  - src: ./deb/hello.env
+    dst: /etc/default/hello.env
+    type: config
+    packager: deb
+  - src: ./deb/hello.service
+    dst: /usr/lib/systemd/system/hello.service
+    type: config
+    packager: deb
+
+  - src: ./apk/hello.conf
+    dst: /etc/hello/hello.conf
+    type: config
+    packager: apk
+  - src: ./apk/hello.env
+    dst: /etc/default/hello.env
+    type: config
+    packager: apk
+
+overrides:
+  rpm:
+    scripts:
+      preinstall: ./rpm/preinst
+      postinstall: ./rpm/postinst
+      preremove: ./rpm/prerm
+      postremove: ./rpm/postrm
+    contents:
+  deb:
+    scripts:
+      preinstall: ./deb/preinst
+      postinstall: ./deb/postinst
+      preremove: ./deb/prerm
+      postremove: ./deb/postrm
+  apk:
+    scripts:
+      preinstall: ./apk/preinst
+      postinstall: ./apk/postinst
+      preremove: ./apk/prerm
+      postremove: ./apk/postrm
+rpm:
+  group: Unspecified
+  summary: Hello World server package.
+  packager: Hello World Community
+  signature:
+    key_file: ./keys/0x52ADAB4B-sec.asc
+    key_id: 1C88AAC752ADAB4B
+deb:
+  signature:
+    method: debsign
+    key_file: ./keys/0x52ADAB4B-sec.asc
+    type: origin
+    key_id: 1C88AAC752ADAB4B
+apk:
+  signature:
+    key_file: ./keys/rsa-private.pem
+    key_name: origin
+    key_id: ignored
