@@ -59,6 +59,7 @@ jobs:
           draft: true
           tag_name: v0.0.0-fpm
 
+  # Another example with https://nfpm.goreleaser.com/
   nfpm:
     runs-on: ubuntu-latest
     needs: build

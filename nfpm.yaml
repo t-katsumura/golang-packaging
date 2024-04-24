@@ -1,3 +1,4 @@
+# See https://nfpm.goreleaser.com/
 name: "hello"
 arch: "${PKG_ARCH}"
 platform: "linux"
