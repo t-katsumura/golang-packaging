@@ -5,9 +5,11 @@ PKG_ITERATION ?= 1
 OUT_DIR ?= $(CURDIR)/output/
 
 # Default settings.
-PKG_TYPE ?= rpm
+PKG_TYPE ?= rpm # One of rpm, deb, apk
 PKG_ARCH ?= x86_64
 BIN_FILE ?= $(CURDIR)/hello
+
+.DEFAULT_GOAL:=fpm-$(PKG_TYPE)
 
 # Common command lines.
 CMD_COMMON := fpm

@@ -20,7 +20,8 @@
 # Go workspace file
 go.work
 
-.vscode/
+.vscode/**
+output/**
 hello
 *.rpm
 *.deb
